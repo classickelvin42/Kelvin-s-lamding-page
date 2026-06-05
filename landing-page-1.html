@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Make Money Online Selling Digital Products</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #F5C842;
+      --gold-dark: #C9A020;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #181818;
+      --text: #E8E8E0;
+      --muted: #888880;
+      --green: #2ECC71;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 6%;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(245,200,66,0.12);
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--gold);
+    }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.55rem 1.3rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-dark); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 7rem 6% 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 780px;
+      text-align: center;
+      position: relative; z-index: 1;
+      animation: fadeUp 0.9s ease both;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(245,200,66,0.12);
+      border: 1px solid rgba(245,200,66,0.35);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.8rem;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 1.4rem;
+    }
+    h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.9rem 2.2rem;
+      border: none; border-radius: 6px;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 rgba(245,200,66,0);
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(245,200,66,0.3);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      padding: 0.9rem 2.2rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+    .price-tag {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .price-tag strong { color: var(--gold); font-size: 1.5rem; font-family: 'Syne', sans-serif; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(245,200,66,0.2), transparent);
+      margin: 0 6%;
+    }
+
+    /* ── VIDEO SECTION ── */
+    .section { padding: 5rem 6%; position: relative; z-index: 1; }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+
+    .video-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(245,200,66,0.15);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    .video-placeholder {
+      background: var(--card);
+      aspect-ratio: 16/9;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+    }
+    .play-btn {
+      width: 70px; height: 70px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .play-btn:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(245,200,66,0.4); }
+    .play-btn svg { margin-left: 5px; }
+    .video-caption { color: var(--muted); font-size: 0.9rem; }
+
+    /* Replace .video-placeholder with actual embed */
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+
+    /* ── WHAT YOU'LL LEARN ── */
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .learn-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeUp 0.7s ease both;
+    }
+    .learn-card:hover { border-color: rgba(245,200,66,0.3); transform: translateY(-3px); }
+    .learn-card:nth-child(1) { animation-delay: 0.1s; }
+    .learn-card:nth-child(2) { animation-delay: 0.2s; }
+    .learn-card:nth-child(3) { animation-delay: 0.3s; }
+    .learn-card:nth-child(4) { animation-delay: 0.4s; }
+    .learn-card:nth-child(5) { animation-delay: 0.5s; }
+    .learn-card:nth-child(6) { animation-delay: 0.6s; }
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+    .card-text { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PRICING ── */
+    .pricing-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid rgba(245,200,66,0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+    }
+    .price-label { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .price-amount {
+      font-family: 'Syne', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .price-currency { font-size: 1.2rem; vertical-align: super; }
+    .price-note { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
+    .features-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    .features-list li {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.92rem;
+      color: var(--text);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .features-list li:last-child { border-bottom: none; }
+    .check { color: var(--green); font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+    .pay-btn {
+      display: block; width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 1rem;
+      border: none; border-radius: 8px;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .pay-btn:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(245,200,66,0.3);
+    }
+    .secure-note {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .testi-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.8rem; }
+    .testi-text { color: var(--text); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1rem; }
+    .testi-author { font-size: 0.82rem; color: var(--muted); }
+    .testi-author strong { color: #fff; display: block; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 680px; margin-top: 2rem; }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.2rem 0;
+    }
+    .faq-q {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem;
+    }
+    .faq-q .arrow { color: var(--gold); font-size: 1.2rem; transition: transform 0.3s; }
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding-top: 0.6rem; }
+    .faq-item.open .arrow { transform: rotate(45deg); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 6%;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.82rem;
+      position: relative; z-index: 1;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 1rem 4%; }
+      .section { padding: 3.5rem 5%; }
+      h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DigitalPro GH</div>
+  <a href="#pricing" class="nav-cta">Get Access — GH₵50</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <h1>Make Money Online<br/><span>Selling Digital Products</span></h1>
+    <p class="hero-sub">
+      A step-by-step video guide that shows you exactly how to create, package, and sell digital products online — even if you're starting from zero.
+    </p>
+    <div class="hero-btns">
+      <a href="#pricing" class="btn-primary">Get Instant Access</a>
+      <a href="#video" class="btn-secondary">Watch Preview ↓</a>
+    </div>
+    <p class="price-tag">One-time payment &nbsp;·&nbsp; <strong>GH₵50</strong> only</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VIDEO LOCKED -->
+<section class="section" id="video" style="text-align:center;">
+  <p class="section-label" style="text-align:center;">Full Course</p>
+  <h2 class="section-title" style="margin:0 auto 1rem; text-align:center;">Watch After Payment</h2>
+  <p class="section-sub" style="margin:0 auto 2.5rem;">Complete your payment below and the video will unlock instantly on this page.</p>
+
+  <!-- LOCKED STATE -->
+  <div class="video-wrapper" id="locked-content">
+    <div class="video-placeholder">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <div style="width:72px;height:72px;background:rgba(245,200,66,0.1);border:1.5px solid rgba(245,200,66,0.35);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;">🔒</div>
+        <p style="color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;">This content is locked</p>
+        <p class="video-caption">Pay GH₵50 to unlock the full video instantly</p>
+        <a href="#pricing" class="btn-primary" style="font-size:0.9rem;padding:0.75rem 1.8rem;text-decoration:none;">Unlock for GH₵50 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNLOCKED STATE (shown after payment code is entered) -->
+  <div class="video-wrapper" id="unlocked-content" style="display:none;">
+    <!--
+      ADD YOUR VIDEO HERE when ready.
+      Option A – Video file:
+        <video class="video-embed" controls src="YOUR-VIDEO-FILE-URL.mp4"></video>
+      Option B – YouTube embed:
+        <iframe class="video-embed" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+    -->
+    <div style="background:var(--card);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+      <div style="font-size:2.5rem;">🎬</div>
+      <p style="color:#fff;font-family:'Syne',sans-serif;font-weight:700;">Payment Confirmed! You're in.</p>
+      <p class="video-caption">Paste your video URL in the HTML to make it play here.</p>
+    </div>
+  </div>
+
+  <p style="margin-top:1.2rem;font-size:0.8rem;color:var(--muted);">
+    Already paid? <a href="#" onclick="promptUnlock(event)" style="color:var(--gold);text-decoration:none;">Click here to unlock</a>
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="section">
+  <p class="section-label">What You'll Learn</p>
+  <h2 class="section-title">Everything You Need to Start Earning</h2>
+  <p class="section-sub">This course covers the full journey from idea to income — no experience needed.</p>
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="card-icon">💡</div>
+      <div class="card-title">Find Your Digital Product Idea</div>
+      <p class="card-text">Discover which digital products sell best and how to pick one that matches your skills.</p>
+    </div>
+    <div class="learn-card">
+      <div class="card-icon">🛠️</div>
+      <div class="card-title">Create Your Product Fast</div>
+      <p class="card-text">Step-by-step guide to creating an ebook, template, or course with free tools.</p>
+    </div>
+    <div class="learn-card">
+      <div class="card-icon">🌍</div>
+      <div class="card-title">Set Up Your Online Store</div>
+      <p class="card-text">Learn which platforms work best for Ghanaian sellers and how to get paid in cedis.</p>
+    </div>
+    <div class="learn-card">
+      <div class="card-icon">📣</div>
+      <div class="card-title">Market & Get Customers</div>
+      <p class="card-text">Use social media and WhatsApp to drive traffic and make your first sales.</p>
+    </div>
+    <div class="learn-card">
+      <div class="card-icon">💳</div>
+      <div class="card-title">Accept Payments Easily</div>
+      <p class="card-text">Set up Paystack, MTN MoMo, and other local payment options seamlessly.</p>
+    </div>
+    <div class="learn-card">
+      <div class="card-icon">📈</div>
+      <div class="card-title">Scale Your Income</div>
+      <p class="card-text">Grow from your first sale to consistent monthly income with proven strategies.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <p class="section-label" style="text-align:center;">Pricing</p>
+  <h2 class="section-title" style="margin:0 auto 0.5rem; text-align:center;">Get Lifetime Access</h2>
+  <p class="section-sub" style="margin:0 auto 2.5rem; text-align:center;">Pay once. Watch forever. Start earning today.</p>
+  <div class="pricing-wrapper">
+    <div class="pricing-card">
+      <p class="price-label">Full Course Access</p>
+      <div class="price-amount"><span class="price-currency">GH₵</span>50</div>
+      <p class="price-note">One-time · No hidden fees</p>
+      <ul class="features-list">
+        <li><span class="check">✓</span> Full step-by-step video course</li>
+        <li><span class="check">✓</span> Watch at your own pace, anytime</li>
+        <li><span class="check">✓</span> Practical examples & real strategies</li>
+        <li><span class="check">✓</span> Works for beginners in Ghana</li>
+        <li><span class="check">✓</span> Lifetime access — pay once</li>
+      </ul>
+      <!--
+        PAYSTACK INTEGRATION:
+        Replace the href below with your Paystack payment link.
+        You can get it from your Paystack dashboard under "Payment Pages".
+        Example: https://paystack.com/pay/your-page-slug
+      -->
+      <a href="https://paystack.com/pay/YOUR-PAYMENT-LINK" class="pay-btn" target="_blank">
+        Pay GH₵50 — Get Instant Access
+      </a>
+      <p class="secure-note">🔒 Secured by Paystack · MTN MoMo, Visa, Mastercard accepted</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <p class="section-label">Testimonials</p>
+  <h2 class="section-title">What Students Are Saying</h2>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I watched this and made my first sale within a week. The steps are so clear and easy to follow, even for a beginner like me."</p>
+      <div class="testi-author"><strong>Akosua M.</strong> Kumasi, Ghana</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Finally a course that talks directly to us in Ghana. I set up my store and started getting MoMo payments easily."</p>
+      <div class="testi-author"><strong>Kwame A.</strong> Accra, Ghana</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I was skeptical at first but GH₵50 is really worth it. I've already made 5x that amount from selling my ebook."</p>
+      <div class="testi-author"><strong>Esi D.</strong> Takoradi, Ghana</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="section">
+  <p class="section-label">FAQ</p>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do I need experience to benefit from this course? <span class="arrow">+</span></div>
+      <div class="faq-a">No experience needed at all. The course is designed for complete beginners and walks you through everything from scratch.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How do I access the video after payment? <span class="arrow">+</span></div>
+      <div class="faq-a">After your payment is confirmed via Paystack, you'll receive a link to access the full video immediately.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I pay with MTN Mobile Money? <span class="arrow">+</span></div>
+      <div class="faq-a">Yes! Paystack supports MTN MoMo, Vodafone Cash, AirtelTigo Money, as well as Visa and Mastercard.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is this a one-time payment? <span class="arrow">+</span></div>
+      <div class="faq-a">Yes. You pay GH₵50 once and get lifetime access to the course. No subscriptions, no renewals.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What if I have questions after watching? <span class="arrow">+</span></div>
+      <div class="faq-a">You can reach out via the contact link in the footer and we'll be happy to help you.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section" style="text-align:center; padding-bottom: 6rem;">
+  <h2 class="section-title" style="margin: 0 auto 1rem;">Ready to Start Earning?</h2>
+  <p class="section-sub" style="margin: 0 auto 2rem;">Join others across Ghana who are already making money online with digital products.</p>
+  <a href="https://paystack.com/pay/YOUR-PAYMENT-LINK" class="btn-primary" target="_blank" style="font-size:1.05rem; padding: 1rem 2.5rem;">
+    Get Access for GH₵50 →
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 DigitalPro GH · All rights reserved &nbsp;|&nbsp; <a href="mailto:your@email.com">Contact Us</a></p>
+  <p style="margin-top:0.5rem;">Payments secured by <a href="https://paystack.com" target="_blank">Paystack</a></p>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+
+  // ── PAYMENT UNLOCK ──
+  // Set your secret access code here. Share this with customers after payment.
+  const ACCESS_CODE = "DIGITAL2026";
+
+  function promptUnlock(e) {
+    e.preventDefault();
+    const code = prompt("Enter your access code (you received this after payment):");
+    if (code && code.trim().toUpperCase() === ACCESS_CODE) {
+      unlockVideo();
+    } else if (code !== null) {
+      alert("Incorrect code. Please check your payment confirmation message.");
+    }
+  }
+
+  function unlockVideo() {
+    document.getElementById('locked-content').style.display = 'none';
+    document.getElementById('unlocked-content').style.display = 'block';
+    document.getElementById('unlocked-content').scrollIntoView({ behavior: 'smooth' });
+    // Save to session so it stays unlocked on refresh within same tab
+    sessionStorage.setItem('unlocked', 'true');
+  }
+
+  // Auto-unlock if already verified this session
+  if (sessionStorage.getItem('unlocked') === 'true') {
+    unlockVideo();
+  }
+</script>
+</body>
+</html>
